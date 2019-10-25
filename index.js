@@ -3,7 +3,7 @@ const https = require('https')
 const EventEmitter = require('events')
 
 class Download extends EventEmitter {
-  constructor (url, outFile) {
+  constructor (url, outFile, options = {}) {
     super()
     let len = 0
     let boolErr = false
@@ -13,7 +13,7 @@ class Download extends EventEmitter {
       file.end()
       boolErr = true
     })
-    https.get(url, (response) => {
+    https.get(url, options, (response) => {
       response.on('data', (chunk) => {
         if (boolErr) { return }
         file.write(chunk)

@@ -5,8 +5,8 @@ const fs = require('fs')
 const localFile = 'rocket.png'
 
 afterAll(() => {
-  fs.unlinkSync(localFile)    
-});
+  fs.unlinkSync(localFile)
+})
 
 test('downlad an image to a file', done => {
   let gPrct = 0
